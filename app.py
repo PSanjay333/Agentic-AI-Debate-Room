@@ -8,7 +8,7 @@ st.title("Agentic Debate Room")
 st.write("Enter a topic and watch specialized AI agents debate from multiple perspectives!")
 
 topic = st.text_input("Enter debate topic:", "Should remote work be mandatory for developers?")
-# --- Define separate debate tasks ---
+# Defining Separate debate tasks
 hr_task = Task(
     description=f"Debate on the topic: '{topic}'. Provide reasoning from an HR perspective.",
     agent=hr_agent,
@@ -24,7 +24,7 @@ manager_task = Task(
     agent=manager_agent,
     expected_output="A paragraph explaining the management viewpoint on the topic."
 )
-# --- Moderator task to summarize ---
+# Moderate task to summarize
 summarize_task = Task(
     description=(
         f"Summarize the debate on '{topic}' between HR, Developer, and Manager. "
