@@ -1,6 +1,11 @@
 import streamlit as st
 from crewai import Crew, Task
-from debate_agents import hr_agent, dev_agent, manager_agent, moderator
+# from debate_agents import hr_agent, dev_agent, manager_agent, moderator
+try:
+    from debate_agents import hr_agent, dev_agent, manager_agent, moderator
+except ModuleNotFoundError:
+    from .debate_agents import hr_agent, dev_agent, manager_agent, moderator
+
 
 st.set_page_config(page_title="Agentic Debate Room", layout="centered")
 
