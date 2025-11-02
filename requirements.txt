@@ -4,3 +4,4 @@ streamlit
 openai
 python-dotenv
 langchain-litellm
+crewai[google-genai]

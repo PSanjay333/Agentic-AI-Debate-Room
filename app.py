@@ -6,14 +6,17 @@ from langchain_litellm import ChatLiteLLM
 
 load_dotenv()
 
+st.set_page_config(page_title="Agentic Debate Room", layout="centered")
+
+st.title("Agentic Debate Room")
+st.write("Enter a topic and watch specialized AI agents debate from multiple perspectives!")
+
 llm = ChatLiteLLM(
     model ="gemini/gemini-2.5-pro",
     temperature = 0.5,
     verbose = True,
     api_key = os.getenv("GOOGLE_API_KEY")
 )
-
-
 
 hr_agent = Agent(
     role ="HR Specialist",
@@ -42,14 +45,9 @@ moderator = Agent(
 
 
 
-
-
-st.set_page_config(page_title="Agentic Debate Room", layout="centered")
-
-st.title("Agentic Debate Room")
-st.write("Enter a topic and watch specialized AI agents debate from multiple perspectives!")
-
 topic = st.text_input("Enter debate topic:", "Should remote work be mandatory for developers?")
+
+
 # Defining Separate debate tasks
 hr_task = Task(
     description=f"Debate on the topic: '{topic}'. Provide reasoning from an HR perspective.",
